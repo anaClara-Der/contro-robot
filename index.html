@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Control Robot R9 por Bluetooth</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <h1>🎮 Control Robot R9 (Bluetooth)</h1>
+    <p class="subtitle">Conectá el módulo Bluetooth y manejá el robot con el teclado — sin cables.</p>
+  </header>
+
+  <div class="warn" id="unsupported">
+    Este navegador no soporta Web Serial. Abrí esta página con <b>Google Chrome</b> o <b>Microsoft Edge</b> (no funciona en Firefox ni Safari).
+  </div>
+
+  <div class="connectRow">
+    <label for="baud">Baud:</label>
+    <select id="baud">
+      <option value="9600" selected>9600</option>
+      <option value="19200">19200</option>
+      <option value="38400">38400</option>
+      <option value="57600">57600</option>
+      <option value="115200">115200</option>
+    </select>
+    <button id="connectBtn">Conectar</button>
+    <button id="disconnectBtn" class="secondary" disabled>Desconectar</button>
+    <div class="statusWrap"><span class="dot" id="dot"></span><span id="statusText">Sin conectar</span></div>
+  </div>
+
+  <div class="main">
+    <div class="padCard">
+      <div class="pad">
+        <div class="key up" data-key="ArrowUp">&#8593;</div>
+        <div class="key left" data-key="ArrowLeft">&#8592;</div>
+        <div class="key down" data-key="ArrowDown">&#8595;</div>
+        <div class="key right" data-key="ArrowRight">&#8594;</div>
+      </div>
+    </div>
+
+    <div class="codesCard">
+      <table class="codes">
+        <tr><th>Tecla</th><th>Acción</th><th>Byte</th><th>ASCII</th></tr>
+        <tr><td>↑</td><td>Adelante</td><td>'w'</td><td>119</td></tr>
+        <tr><td>↓</td><td>Atrás</td><td>'s'</td><td>115</td></tr>
+        <tr><td>←</td><td>Izquierda</td><td>'a'</td><td>97</td></tr>
+        <tr><td>→</td><td>Derecha</td><td>'d'</td><td>100</td></tr>
+        <tr><td>(soltar)</td><td>Parar</td><td>'x'</td><td>120</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <footer id="log"></footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
